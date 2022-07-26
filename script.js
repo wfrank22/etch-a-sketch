@@ -2,21 +2,17 @@ const grid = document.getElementById('grid');
 const gridSquare = document.createElement('div');
 
 function createGrid(gridSize){
-    for(let i = 0; i < gridSize; i++){
+    for(let i = 0; i < gridSize; i++){ //create rows
         let row = document.createElement('div');
-        grid.appendChild(row).className = 'gridSquare';
-        styleGridSquare(gridSquare);
-        grid.appendChild(gridSquare);
+        grid.appendChild(row).className = 'gridSquareRow';
+        row.innerHTML = 'Row';
+        for(let j = 0; j < gridSize-1; j++){ //create columns
+            let column = document.createElement('div');
+            grid.appendChild(column).className = 'gridSquareColumn';
+            column.innerHTML = 'Column';
+        }
     }
 }
 
-createGrid(16);
 
-function styleGridSquare(a){
-    a.style.width = '100px';
-    a.style.height = '100px';
-    a.style.background = 'red';
-    a.style.color = 'black';
-    a.style.border = 'solid black';
-    a.innerHTML = 'Box';
-}
+createGrid(16);
