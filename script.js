@@ -5,23 +5,25 @@ const grid = document.getElementById('grid');
 function createGrid(gridSize){
     for(let i = 0; i < gridSize; i++){ //create rows
         let row = document.createElement('div');
-        grid.appendChild(row).className = 'gridSquareRow';
+        grid.appendChild(row).className = 'gridSquareRow' + i;
         for(let j = 0; j < gridSize-1; j++){ //create columns
             let column = document.createElement('div');
-            grid.appendChild(column).className = 'gridSquareColumn';
+            grid.appendChild(column).className = 'gridSquareColumn' + j;
         }
     }
 }
 
 createGrid(16);
 
-document.addEventListener('mouseover', function(e){
-    if(e.target.classList.contains('gridSquareRow' || 'gridSquareColumn')){
-        mouseOver();
+grid.addEventListener('mouseout', function(e){
+    console.log(e);
+    if(e.target.classList.contains('div[class*="gridSquareRow"]') || e.target.classList.contains('div[class*="gridSquareColumn"]')){
+        console.log('test');
+        hoverBox();
     }
 })
 
-function mouseOver(){
+function hoverBox(){
     document.grid.style.backgroundColor = 'black';
-    document.gridSquareColumn.style.backgroundColor = 'black';
+
 }

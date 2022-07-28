@@ -7,7 +7,7 @@
     width: 336px;
 }
 
-.gridSquareRow, .gridSquareColumn{
+div[class*='gridSquare']{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -21,8 +21,4 @@
     border-style: solid;
     border-color: black;
     font-size: 5px;
-}
-
-.gridSquareRow{
-    background-color: white;
 }
